@@ -6,8 +6,8 @@
     <title>Guessing Game</title>
 </head>
 <body>
+    <h1 class="heading">Card Guessing Game</h1>
     <div class="game-container">
-        <h1>Card Guessing Game</h1>
         <div class="card-grid">
             <% for (let i = 0; i < 36; i++) { %>
                 <div class="card" data-id="<%= i %>">
@@ -18,12 +18,12 @@
         </div>
         <button id="reset-btn">Reset Game</button>
         <div id="winning-message" style="display: none;">
-            <p>Congratulations! You've won!</p>
+            <p class="win">Congratulations! You've won!</p>
         </div>
     </div>
     <script src="/js/script.js" defer></script>
 </body>
-<footer>
+<footer class="footer">
     <%- include('../partials/footer') %>
 </footer>
 </html>

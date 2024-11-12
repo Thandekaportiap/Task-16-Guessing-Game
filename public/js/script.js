@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
-    const emojiList = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍍", "🍑", "🍊", "🥭", "🧁", "🍧", "🍩", "🍟", "🍬", "🍭", "🍿", "🌭", "🍺", "🍷", "🥘"];
+    const emojiList = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍍", "🍑", "🧁", "🍧", "🍩", "🍟", "🍬", "🍭", "🍿", "🌭", "🍺", "🍷","🥘"];
     
     // Duplicate the emojis to create pairs
     const cardEmojis = [...emojiList, ...emojiList].slice(0, 36); // 18 pairs for a 6x6 grid
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach((card, index) => {
         const emoji = cardEmojis[index];
         card.querySelector('.card-back').textContent = emoji; // Display emoji on card back
+        card.dataset.id = emoji; // Assign emoji to card for matching
     });
 
     function resetGame() {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach((card, index) => {
             const emoji = cardEmojis[index];
             card.querySelector('.card-back').textContent = emoji;
+            card.dataset.id = emoji; // Ensure card id is updated for matching
         });
     }
 
@@ -54,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function flipCard() {
-        if (flippedCards.length < 2) {
+        if (flippedCards.length < 2 && !this.classList.contains('flip')) {
             this.classList.add('flip');
             flippedCards.push(this);
             if (flippedCards.length === 2) {

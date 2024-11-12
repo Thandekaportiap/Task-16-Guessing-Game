@@ -2,6 +2,10 @@
     text-align: center;
     background-color: smokewhite;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .card-grid {
     display: grid;
@@ -17,7 +21,8 @@
 }
 
 .card {
-    border: 2px solid #ccc;
+    border: 2px solid olivedrab;
+    color: orangered;
     border-radius: 8px;
     overflow: hidden;
     width: 80px; /* Set width for each card */
@@ -48,6 +53,71 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+}
+.heading {
+    text-align: center;
+    font-size: bold;
+    color: olivedrab;
+    font-size: xx-large;
+}
+
+#reset-btn {
+    padding: 14px 28px;
+    background-color: olivedrab;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+.win {
+    font-size: xx-large;
+    color: orangered;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: win-animation 1s ease-in-out;
+}
+.footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    /* Reduce card size for smaller screens */
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Adjust the grid to 4 columns for tablets */
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further reduce card size for mobile screens */
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Adjust the grid to 3 columns for smaller mobile screens */
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    /* Adjust font size for smaller screens */
+    .card-back {
+        font-size: 1.5rem;
+    }
 }
 
 
